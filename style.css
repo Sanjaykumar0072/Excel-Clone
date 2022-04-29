@@ -22,6 +22,7 @@
 }
 
 .sheets{
+    display: flex;
     border:  0.5px solid;
     height: 50px;
     background-color: whitesmoke;
@@ -93,4 +94,31 @@
 #address{
     text-align: center;
     font-size: larger;
+}
+.add-sheet{
+    width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid black;
+    color: darkgreen;
+}
+.sheets-list{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.sheet{
+    border-right: 0.5px solid black;
+    width: 90px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.active-sheet{
+    background-color: white;
+    font-weight: bolder;
 }

@@ -14,7 +14,7 @@ cellsContentDiv.addEventListener("scroll",function(e){
     topLeftCell.style.left = left+"px";
     leftCol.style.left = left+"px";
 })
-//creating the value like------B1,C2,A5...
+//creating the address value like------B1,C2,A5...
 for(let i=0;i<allCells.length;i++){
     allCells[i].addEventListener("click",function(e){
         // console.log(e.target);
@@ -44,7 +44,7 @@ for(let i=0;i<allCells.length;i++){
         // console.log("After update",cellObject);
         updateChildren(cellObject);
     })
-    allCells[i].addEventListener('keydoen',function(e){
+    allCells[i].addEventListener('keydown',function(e){
         if(e.key == 'Backspace'){
             let cell = e.target;
             let {rowId,colId} = getRowIdColIdFromElement(cell);
