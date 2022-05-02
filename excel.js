@@ -5,7 +5,7 @@ let allCells = document.querySelectorAll(".cell");
 let addressInput = document.querySelector("#address");
 let formulaInput = document.querySelector("#formula");
 let lastSelectedCell;
-
+//Excel-Clone is created
 cellsContentDiv.addEventListener("scroll",function(e){
     let top = e.target.scrollTop;
     let left = e.target.scrollLeft;
@@ -17,7 +17,7 @@ cellsContentDiv.addEventListener("scroll",function(e){
 //creating the address value like------B1,C2,A5...
 for(let i=0;i<allCells.length;i++){
     allCells[i].addEventListener("click",function(e){
-        // console.log(e.target);
+        console.log(e.target);
         let rowId = Number(e.target.getAttribute("rowid"));
         let colId = Number(e.target.getAttribute("colid"));
         // console.log(rowId+" "+colId);
