@@ -6,7 +6,7 @@
 
 .menu-options{
     border: 0.5px solid;
-    height: 35px;
+    height: 25px;
 }
 
 .address-cont{
@@ -24,7 +24,7 @@
 .sheets{
     display: flex;
     border:  0.5px solid;
-    height: 50px;
+    height: 40px;
     background-color: whitesmoke;
 }
 
@@ -121,4 +121,21 @@
 .active-sheet{
     background-color: white;
     font-weight: bolder;
+}
+.font-style{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 0.2px solid black;
+    width: 150px;
+    height: 100%;
+}
+
+.font-style div{
+    cursor: pointer;
+    height: 90%;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
