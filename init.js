@@ -4,7 +4,7 @@ function initCells(){
     let cellsCont = "<div class = 'top-left-cell'></div>";
     cellsCont+="<div class='top-row'>"
     for(let i=0;i<26;i++){
-        cellsCont+=`<div class='top-row-cell'>${String.fromCharCode(65+i)}</div>`
+        cellsCont+=`<div class='top-row-cell'>${String.fromCharCode(65+i)}</div>`;
     }
     cellsCont+="</div>"
     cellsCont+="<div class = 'left-col'>"
@@ -41,7 +41,8 @@ function initDb(){
                 formula:"",
                 children : [],
                 parent : [],
-                visited : false
+                visited : false,
+                fontStyle : {bold:false , italic:false , underline:false}
             }
             row.push(cellObject);
         }

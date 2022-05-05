@@ -1,76 +1,81 @@
+:root{
+    --border-color: #EFF0EF;
+    --cell-background:#F5F6F5;
+    --active-cell:#2ecc71;
+    --cell-selected:#E5E6E5;
+}
+
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+    font-size: 0.85rem;
 }
 
 .menu-options{
-    border: 0.5px solid;
-    height: 25px;
+    /* border: 0.5px solid; */
+    height: 30px;
+    background-color: whitesmoke;
+    border-bottom: 0.1px solid var(--border-color);
 }
-
 .address-cont{
-    border: 0.5px solid;
-    height: 25px;
+    /* border: 0.5px solid; */
+    height: 20px;
+    display: flex;
 }
-
 .cells-cont{
     height: calc(100vh - 90px);
-    background-color: lightgray;
+    /* background-color: lightgray; */
     overflow: auto;
     position: relative;
 }
-
 .sheets{
     display: flex;
-    border:  0.5px solid;
-    height: 40px;
+    border-top: 0.5px solid var(--border-color);
+    height: 37px;
     background-color: whitesmoke;
+    align-items: center;
 }
-
 .row{
     display: flex;
 }
-
 .cell{
-    border-left: 0.1px solid;
-    border-bottom: 0.1px solid;
-    min-height: 30px;
-    min-width: 70px;
+    border-left: 0.1px solid var(--border-color);
+    border-bottom: 0.1px solid var(--border-color);
+    min-height: 20px;
+    width: 90px;
     outline :none;
 }
-
 .top-left-cell{
-    border-bottom: 0.1px solid;
+    border-bottom: 0.1px solid var(--border-color);
     border-right: 0.1px solid;
     height: 30px;
     width: 30px;
-    background: grey;
+    background: var(--cell-background);
     position: absolute;
     z-index: 3;
+    border-bottom: 0.1px solid var(--border-color);
 }
-
 .top-row{
     position: absolute;
     display: flex;
-    background-color: lightgrey;
-    left: 30px;
+    background: var(--border-color);
+    left: 40px;
     top:0px;
     z-index: 2;
 }
-
 .top-row-cell{
-    border-left: 0.1px solid;
-    border-bottom: 0.1px solid;
-    height: 30px;
+    border-left: 0.1px solid var(--border-color);
+    border-bottom: 0.1px solid var(--border-color);
+    min-height: 30px;
     width: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .left-col{
-    background-color: lightgray;
+    background: var(--cell-background);
     position: absolute;
     left:0px;
     top:30px;
@@ -80,7 +85,7 @@
 .left-col-cell{
     height: 30px;
     width: 30px;
-    border-bottom: 0.1px solid;
+    border-bottom: 0.1px solid var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,12 +93,20 @@
 
 .cells{
     position: absolute;
-    top:30px;
-    left:30px;
+    top:20px;
+    left:40px;
 }
 #address{
+    width: 50px;
+    border: none;
     text-align: center;
-    font-size: larger;
+}
+#formula{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-left: .1px solid var(--border-color);
+    padding: 5px;
 }
 .add-sheet{
     width: 30px;
@@ -101,8 +114,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.5px solid black;
-    color: darkgreen;
+    border: 0.5px solid var(--border-color);
+    color: var(--active-cell);
 }
 .sheets-list{
     display: flex;
@@ -110,27 +123,27 @@
     height: 100%;
 }
 .sheet{
-    border-right: 0.5px solid black;
+    border-right: 0.5px solid var(--border-color);
     width: 90px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 0.8rem;
 }
 .active-sheet{
     background-color: white;
-    font-weight: bolder;
+    font-weight: bold;
 }
 .font-style{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-right: 0.2px solid black;
+    border-right: 0.2px solid lightgray;
     width: 150px;
     height: 100%;
 }
-
 .font-style div{
     cursor: pointer;
     height: 90%;
@@ -138,4 +151,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+}
+.font-style div:hover{
+    background-color: chocolate;
+    opacity: 0.5;
+}
+.active-font-style{
+    background-color: chocolate;
+}
+.active-cell{
+    border: 2px solid var(--active-cell);
+}
+.cell-selected{
+    background: coral;
 }
