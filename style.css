@@ -15,9 +15,11 @@
 
 .menu-options{
     /* border: 0.5px solid; */
-    height: 30px;
+    height: 40px;
     background-color: whitesmoke;
     border-bottom: 0.1px solid var(--border-color);
+    display: flex;
+    align-items: center;
 }
 .address-cont{
     /* border: 0.5px solid; */
@@ -43,15 +45,15 @@
 .cell{
     border-left: 0.1px solid var(--border-color);
     border-bottom: 0.1px solid var(--border-color);
-    min-height: 20px;
-    width: 90px;
+    min-height: 25px;
+    width: 80px;
     outline :none;
 }
 .top-left-cell{
     border-bottom: 0.1px solid var(--border-color);
-    border-right: 0.1px solid;
+    border-right: 0.1px solid var(--border-color);
     height: 30px;
-    width: 30px;
+    width: 40px;
     background: var(--cell-background);
     position: absolute;
     z-index: 3;
@@ -69,7 +71,7 @@
     border-left: 0.1px solid var(--border-color);
     border-bottom: 0.1px solid var(--border-color);
     min-height: 30px;
-    width: 70px;
+    width: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,8 +85,8 @@
 }
 
 .left-col-cell{
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 40px;
     border-bottom: 0.1px solid var(--border-color);
     display: flex;
     justify-content: center;
@@ -93,7 +95,7 @@
 
 .cells{
     position: absolute;
-    top:20px;
+    top:30px;
     left:40px;
 }
 #address{
@@ -160,9 +162,79 @@
 .active-font-style{
     background-color: chocolate;
 }
+.bold{
+    font-size: 15px;
+}
+.italic{
+    font-size: 15px;
+}
+.underline{
+    font-size: 15px;
+}
 .active-cell{
     border: 2px solid var(--active-cell);
 }
 .cell-selected{
-    background: coral;
+    border: 2px solid var(--active-cell);
 }
+.para-style{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 0.2px solid lightgray;
+    width: 150px;
+    height: 100%;
+
+}
+.para-style div{
+    cursor: pointer;
+    height: 90%;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;    
+}
+.para-style div:hover{
+    background-color: chocolate;
+    opacity: 0.5;
+}
+.active-para-style{
+    background-color: chocolate;
+}
+.align-left{
+    font-size: larger;
+}
+.align-center{
+    font-size: larger;
+}
+.align-right{
+    font-size: larger;
+}
+.active-align-style{
+    background-color: chocolate;
+}
+.font-family{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 0.2px solid lightgray;
+    width: 200px;
+    height: 100%;
+}
+.fontFamily{
+    width: 135px;
+    height: 60%;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color:whitesmoke;
+}  
+.fontSize{
+    width: 40px;
+    font-size: 15px;
+    height: 60%;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    
+}
+

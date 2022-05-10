@@ -4,12 +4,12 @@ function initCells(){
     let cellsCont = "<div class = 'top-left-cell'></div>";
     cellsCont+="<div class='top-row'>"
     for(let i=0;i<26;i++){
-        cellsCont+=`<div class='top-row-cell'>${String.fromCharCode(65+i)}</div>`;
+        cellsCont+=`<div class='top-row-cell' trid='${i}'>${String.fromCharCode(65+i)}</div>`;
     }
     cellsCont+="</div>"
     cellsCont+="<div class = 'left-col'>"
     for(let i=0;i<100;i++){
-        cellsCont+=`<div class= 'left-col-cell'>${i+1}</div>`
+        cellsCont+=`<div class= 'left-col-cell' lcid='${i}'>${i+1}</div>`;
     }
     cellsCont+="</div>"
     cellsCont+="<div class = 'cells'>"
@@ -42,7 +42,8 @@ function initDb(){
                 children : [],
                 parent : [],
                 visited : false,
-                fontStyle : {bold:false , italic:false , underline:false}
+                fontStyle : {bold:false , italic:false , underline:false},
+                alignStyle : {leftAlign:false , centerAlign:false , rightAlign:false}
             }
             row.push(cellObject);
         }

@@ -5,6 +5,10 @@ let allCells = document.querySelectorAll(".cell");
 let addressInput = document.querySelector("#address");
 let formulaInput = document.querySelector("#formula");
 let lastSelectedCell;
+let leftcolcells = document.querySelectorAll(".left-col-cell");
+let toprowcells = document.querySelectorAll(".top-row-cell");
+let lasttopcell;
+let lastleftcell;
 //Excel-Clone is created
 cellsContentDiv.addEventListener("scroll",function(e){
     let top = e.target.scrollTop;
@@ -41,7 +45,22 @@ for(let i=0;i<allCells.length;i++){
         addressInput.value = address;
         //update ui
         formulaInput.value = cellObject.formula;
-
+        
+        if(rowId == 0 && colId == 0){
+            allCells[i].style.borderLeft = "none";
+            allCells[i].style.borderTop = "none";
+        }
+        else if(rowId == 0){
+            allCells[i].style.borderTop = "none";
+        }
+        else if(colId == 0){
+            allCells[i].style.borderLeft = "none";
+        }
+        else{
+            //normal
+        }
+        
+        ////////font style /// ///////////
         cellObject.fontStyle.bold?
         document.querySelector(".bold").classList.add("active-font-style"):
         document.querySelector(".bold").classList.remove("active-font-style");
@@ -53,6 +72,32 @@ for(let i=0;i<allCells.length;i++){
         cellObject.fontStyle.underline?
         document.querySelector(".underline").classList.add("active-font-style"):
         document.querySelector(".underline").classList.remove("active-font-style");
+
+        ///Align Items////////////////
+        cellObject.alignStyle.leftAlign?
+        document.querySelector(".align-left").classList.add("active-align-style"):
+        document.querySelector(".align-left").classList.remove("active-align-style");
+
+        cellObject.alignStyle.centerAlign?
+        document.querySelector(".align-center").classList.add("active-align-style"):
+        document.querySelector(".align-center").classList.remove("active-align-style");
+
+        cellObject.alignStyle.rightAlign?
+        document.querySelector(".align-right").classList.add("active-align-style"):
+        document.querySelector(".align-right").classList.remove("active-align-style");
+
+        ////////font family//////////////////////////
+    //     function start(){
+    //         document.getElementById("font-family").addEventListener("change", addActivityItem, false);
+    //         }
+      
+    //   function addActivityItem(){
+    //         //option is selected
+    //         alert("yeah");
+    //   }
+      
+    //   window.addEventListener("load", start, false);
+
     })
 
     allCells[i].addEventListener("blur",function(e){
@@ -61,11 +106,14 @@ for(let i=0;i<allCells.length;i++){
         let cellValue = e.target.textContent;
         let rowId = e.target.getAttribute("rowid");
         let colId = e.target.getAttribute("colid");
+        lastleftcell=rowId;
+        lasttopcell=colId;
         let cellObject = db[rowId][colId];
         if(cellObject.value == cellValue){
             return;
         }
         cellObject.value = cellValue;
+        cellObject.formula = formulaInput.value;
         // console.log("After update",cellObject);
         updateChildren(cellObject);
         if(cellObject.visited){
@@ -97,6 +145,12 @@ formulaInput.addEventListener("blur",function(e){
     if(formula){
         let {rowId,colId} = getRowIdColIdFromElement(lastSelectedCell);
         let cellObject = db[rowId][colId];
+        //Intially checking that the cellobj contains formula previosly or not
+        //If it contains previosly we r updating it with nwew one so we are first deleting the parent and child 
+        //of the specifc cell object
+        if(cellObject.formula){
+            removeFormula(cellObject);
+        }
         let computedValue = solveFormula(formula,cellObject);
         //update db
         cellObject.value = computedValue;
@@ -106,5 +160,3 @@ formulaInput.addEventListener("blur",function(e){
         updateChildren(cellObject);
     }
 })
-
-
