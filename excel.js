@@ -5,10 +5,6 @@ let allCells = document.querySelectorAll(".cell");
 let addressInput = document.querySelector("#address");
 let formulaInput = document.querySelector("#formula");
 let lastSelectedCell;
-let leftcolcells = document.querySelectorAll(".left-col-cell");
-let toprowcells = document.querySelectorAll(".top-row-cell");
-let lasttopcell;
-let lastleftcell;
 //Excel-Clone is created
 cellsContentDiv.addEventListener("scroll",function(e){
     let top = e.target.scrollTop;
@@ -86,18 +82,6 @@ for(let i=0;i<allCells.length;i++){
         document.querySelector(".align-right").classList.add("active-align-style"):
         document.querySelector(".align-right").classList.remove("active-align-style");
 
-        ////////font family//////////////////////////
-    //     function start(){
-    //         document.getElementById("font-family").addEventListener("change", addActivityItem, false);
-    //         }
-      
-    //   function addActivityItem(){
-    //         //option is selected
-    //         alert("yeah");
-    //   }
-      
-    //   window.addEventListener("load", start, false);
-
     })
 
     allCells[i].addEventListener("blur",function(e){
@@ -106,8 +90,7 @@ for(let i=0;i<allCells.length;i++){
         let cellValue = e.target.textContent;
         let rowId = e.target.getAttribute("rowid");
         let colId = e.target.getAttribute("colid");
-        lastleftcell=rowId;
-        lasttopcell=colId;
+        
         let cellObject = db[rowId][colId];
         if(cellObject.value == cellValue){
             return;
